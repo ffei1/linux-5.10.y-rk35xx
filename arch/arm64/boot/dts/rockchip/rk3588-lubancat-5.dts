@@ -18,7 +18,7 @@
 #include "rk3588.dtsi"
 #include "rk3588-linux.dtsi"
 
-#include "rk3588-lubancat-5-hdmi1-VP0.dtsi"
+#include "rk3588-lubancat-5-hdmi0.dtsi"
 
 / {
 	model = "Embedfire LubanCat-5";
