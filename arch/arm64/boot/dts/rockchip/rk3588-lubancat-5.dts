@@ -15,13 +15,12 @@
 #include <dt-bindings/display/drm_mipi_dsi.h>
 #include <dt-bindings/display/rockchip_vop.h>
 #include <dt-bindings/sensor-dev.h>
-#include <dt-bindings/phy/jlsemi-dt-phy.h>
 #include "rk3588.dtsi"
 #include "rk3588-linux.dtsi"
 
 //vp0
 // #include "rk3588-lubancat-5-hdmi1-vp0.dtsi"
-// #include "rk3588-lubancat-5-hdmi0.dtsi"
+#include "rk3588-lubancat-5-hdmi0.dtsi"
 
 //vp2 二选一
 // #include "rk3588-lubancat-5-dp1-edp_port.dtsi"
