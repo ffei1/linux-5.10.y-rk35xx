@@ -821,10 +821,6 @@
 	status = "okay";
 };
 
-&rkvtunnel {
-	status = "okay";
-};
-
 /* this is a watchdog */
 &wdt {
 	status = "okay";
@@ -890,6 +886,7 @@
 				 JL2XXX_LED2_LINK100  | \
 				 JL2XXX_LED2_LINK1000 | \
 				 JL2XXX_LED2_ACTIVITY )>; //JL PHY
+                                 status = "okay";
 	};
 };
 
@@ -905,6 +902,7 @@
 				 JL2XXX_LED2_LINK100  | \
 				 JL2XXX_LED2_LINK1000 | \
 				 JL2XXX_LED2_ACTIVITY )>; //JL PHY
+                                 status = "okay";
 	};
 };
 
