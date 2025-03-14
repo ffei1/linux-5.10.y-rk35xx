@@ -905,11 +905,6 @@
 	status = "okay";
 };
 
-&usb_host2_xhci {
-	status = "okay";
-	dr_mode = "host";
-};
-
 /* USB3.1/DP Combo PHY0 */
 &usbdp_phy0 {
 	orientation-switch;
@@ -934,21 +929,6 @@
 };
 
 /* USB3.1 OTG0 Controller  */
-&usb_host0_xhci {
-	dr_mode = "otg";
-	usb-role-switch;
-	
-	status = "okay";
-	port {
-		#address-cells = <1>;
-		#size-cells = <0>;
-		dwc3_0_role_switch: endpoint@0 {
-			reg = <0>;
-			remote-endpoint = <&usbc0_role_sw>;
-		};
-	};
-};
-
 /* USB2.0 PHY0 */
 &u2phy0 {
 	status = "okay";
