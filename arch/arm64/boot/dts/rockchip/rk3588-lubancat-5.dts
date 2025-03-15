@@ -817,7 +817,7 @@
 			 &gmac0_rgmii_clk
 			 &gmac0_rgmii_bus>;
 
-	tx_delay = <0x47>;
+	tx_delay = <0x20>;
 	/* rx_delay = <0x4f>; */
 
 	phy-handle = <&rgmii_phy0>;
@@ -841,7 +841,7 @@
 			 &gmac1_rgmii_clk
 			 &gmac1_rgmii_bus>;
 
-	tx_delay = <0x42>;
+	tx_delay = <0x20>;
 	/* rx_delay = <0x4f>; */
 
 	phy-handle = <&rgmii_phy1>;
@@ -852,7 +852,6 @@
 	rgmii_phy0: phy@0 {
 		compatible = "ethernet-phy-ieee802.3-c22";
 		reg = <0x00>;
-		realtek,led-data = <0x6d60>;
 	};
 };
 
@@ -860,7 +859,6 @@
 	rgmii_phy1: phy@0 {
 		compatible = "ethernet-phy-ieee802.3-c22";
 		reg = <0x00>;
-		realtek,led-data = <0x6d60>;
 	};
 };
 
@@ -905,30 +903,56 @@
 	status = "okay";
 };
 
-/* USB3.1/DP Combo PHY0 */
-&usbdp_phy0 {
-	orientation-switch;
-	svid = <0xff01>;
-	sbu1-dc-gpios = <&gpio1 RK_PA0 GPIO_ACTIVE_HIGH>;
-	sbu2-dc-gpios = <&gpio1 RK_PA1 GPIO_ACTIVE_HIGH>;
+&usbdp_phy1_u3 {
 	status = "okay";
+};
 
+&usbdrd3_1 {
+	status = "okay";
+};
+
+&usbdrd_dwc3_1 {
+	status = "okay";
+	dr_mode = "host";
+};
+
+/* USB3.1/DP Combo PHY0 */
+&usbdrd3_0 {
+	status = "okay";
+};
+
+&usbdrd_dwc3_0 {
+	dr_mode = "otg";
+	usb-role-switch;
+	
+	status = "okay";
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
-		usbdp_phy0_orientation_switch: endpoint@0 {
+		dwc3_0_role_switch: endpoint@0 {
 			reg = <0>;
-			remote-endpoint = <&usbc0_orien_sw>;
-		};
-
-		usbdp_phy0_dp_altmode_mux: endpoint@1 {
-			reg = <1>;
-			remote-endpoint = <&dp_altmode_mux>;
+			remote-endpoint = <&usbc0_role_sw>;
 		};
 	};
 };
 
+
 /* USB3.1 OTG0 Controller  */
+&usb_host0_xhci {
+	dr_mode = "otg";
+	usb-role-switch;
+	
+	status = "okay";
+	port {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		dwc3_0_role_switch: endpoint@0 {
+			reg = <0>;
+			remote-endpoint = <&usbc0_role_sw>;
+		};
+	};
+};
+
 /* USB2.0 PHY0 */
 &u2phy0 {
 	status = "okay";
