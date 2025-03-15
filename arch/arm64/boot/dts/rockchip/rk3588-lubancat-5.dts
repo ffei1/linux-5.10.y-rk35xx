@@ -852,6 +852,7 @@
 	rgmii_phy0: phy@0 {
 		compatible = "ethernet-phy-ieee802.3-c22";
 		reg = <0x00>;
+                realtek,led-data = <0x6d60>;
 	};
 };
 
@@ -859,6 +860,7 @@
 	rgmii_phy1: phy@0 {
 		compatible = "ethernet-phy-ieee802.3-c22";
 		reg = <0x00>;
+                realtek,led-data = <0x6d60>;
 	};
 };
 
